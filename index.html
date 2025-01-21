@@ -4,11 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
-    <div class="card-container"id="card">
-        <img src="./img/img1.jpg" class="product-img">
+    <style>
+        .card-container{
+            width:200px;
+            
+            border:2px double rgb(245, 157, 172);
+            background-color: rgb(252, 233, 236);
+            border-radius: 10px;
+        }
+        .product-img{
+            height: 150px;
+            display: block;
+            margin:20px auto;
+        }
+        .product-tittle{
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+        justify-content: center;
 
-    </div>
+        }
+        .product-price{
+            text-align: center;
+        }
+        .btn{
+            background-color: rgb(245, 100, 124);
+            color: white;
+            border: none;
+            padding: 9px 20px;
+            display: block;
+            margin: 10px auto;
+            border-radius: 10px;
+            cursor: pointer;
+            
+        }
+        .quantity-icon{
+            height: 30px;
+            margin: 0 10px;
+
+        }
+        .container-quantity{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+            </head>
+            <body>
+                <div class="card-container"id="card">
+
+                    <img src="./img/img1.png" class="product-img">
+                    <h2 class="product-tittle">Bags</h2>
+                    <p class="product-price">Price: Rs 250</p>
+
+                            <div class="container-quantity">
+                                <img src="./img/minus.png"  class="quantity-icon" onclick="dic()"/>
+                            <span id="quantity">1 </span>
+                            <img src="./img/plus.png"  class="quantity-icon" onclick="inc()"/>
+                            
+                            </div>
+            <button type="button" class="btn" onclick =" ">Buy Now</button>
+                </div>
+
+    <script>
+        const quantElement = document.getElementById('quqntity')
+        function inc(){
+            let quantity=parseInt(quantElement.innerText);
+            quantElement.innerText = ++quantity;
+
+        }
+
+        function dic(){
+            let quantity=parseInt(quantElement.innerText);
+            quantElement.innerText = --quantity;
+
+        }
+    </script>
 </body>
 </html>
