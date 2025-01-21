@@ -3,31 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Product Card</title>
     <style>
-        .card-container{
-            width:200px;
-            
-            border:2px double rgb(245, 157, 172);
+        .card-container {
+            width: 200px;
+            border: 2px double rgb(245, 157, 172);
             background-color: rgb(252, 233, 236);
             border-radius: 10px;
         }
-        .product-img{
+        .product-img {
             height: 150px;
             display: block;
-            margin:20px auto;
-        }
-        .product-tittle{
-        margin: 0px;
-        padding: 0px;
-        text-align: center;
-        justify-content: center;
+            margin: 20px auto;
 
         }
-        .product-price{
+        .product-title {
+            margin: 0;
+            padding: 0;
             text-align: center;
         }
-        .btn{
+        .product-price {
+            text-align: center;
+        }
+        .btn {
             background-color: rgb(245, 100, 124);
             color: white;
             border: none;
@@ -36,48 +34,45 @@
             margin: 10px auto;
             border-radius: 10px;
             cursor: pointer;
-            
         }
-        .quantity-icon{
+        .quantity-icon {
             height: 30px;
             margin: 0 10px;
-
         }
-        .container-quantity{
+        .container-quantity {
             display: flex;
             justify-content: center;
             align-items: center;
         }
     </style>
-            </head>
-            <body>
-                <div class="card-container"id="card">
+</head>
+<body>
+    <div class="card-container" id="card">
+        <img src="./img/img1.png" alt="Product Image" class="product-img">
+        <h2 class="product-title">Bags</h2>
+        <p class="product-price">Price: Rs 250</p>
+        <div class="container-quantity">
+            <img src="./img/minus.png" alt="Minus" class="quantity-icon" onclick="decreaseQuantity()">
+            <span id="quantity">1</span>
+            <img src="./img/plus.png" alt="Plus" class="quantity-icon" onclick="increaseQuantity()">
+        </div>
+        <button type="button" class="btn">Buy Now</button>
+    </div>
 
-                    <img src="./img/img1.png" class="product-img">
-                    <h2 class="product-tittle">Bags</h2>
-                    <p class="product-price">Price: Rs 250</p>
-
-                            <div class="container-quantity">
-                                <img src="./img/minus.png"  class="quantity-icon" onclick="dic()"/>
-                            <span id="quantity">1 </span>
-                            <img src="./img/plus.png"  class="quantity-icon" onclick="inc()"/>
-                            
-                            </div>
-            <button type="button" class="btn" onclick =" ">Buy Now</button>
-                </div>
 
     <script>
-        const quantElement = document.getElementById('quqntity')
-        function inc(){
-            let quantity=parseInt(quantElement.innerText);
-            quantElement.innerText = ++quantity;
+        const quantityElement = document.getElementById('quantity');
 
+        function increaseQuantity() {
+            let quantity = parseInt(quantityElement.innerText);
+            quantityElement.innerText = quantity + 1;
         }
 
-        function dic(){
-            let quantity=parseInt(quantElement.innerText);
-            quantElement.innerText = --quantity;
-
+        function decreaseQuantity() {
+            let quantity = parseInt(quantityElement.innerText);
+            if (quantity > 1) {
+                quantityElement.innerText = quantity - 1;
+            }
         }
     </script>
 </body>
